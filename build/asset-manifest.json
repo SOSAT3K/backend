@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/newmarketProject/static/css/main.e8ff79f5.chunk.css",
+    "main.js": "/newmarketProject/static/js/main.ea1ee7e0.chunk.js",
+    "main.js.map": "/newmarketProject/static/js/main.ea1ee7e0.chunk.js.map",
+    "runtime-main.js": "/newmarketProject/static/js/runtime-main.ee6c2496.js",
+    "runtime-main.js.map": "/newmarketProject/static/js/runtime-main.ee6c2496.js.map",
+    "static/js/2.b4407e07.chunk.js": "/newmarketProject/static/js/2.b4407e07.chunk.js",
+    "static/js/2.b4407e07.chunk.js.map": "/newmarketProject/static/js/2.b4407e07.chunk.js.map",
+    "index.html": "/newmarketProject/index.html",
+    "precache-manifest.9c64162ea2a5a1c5a858b7884fee262c.js": "/newmarketProject/precache-manifest.9c64162ea2a5a1c5a858b7884fee262c.js",
+    "service-worker.js": "/newmarketProject/service-worker.js",
+    "static/css/main.e8ff79f5.chunk.css.map": "/newmarketProject/static/css/main.e8ff79f5.chunk.css.map",
+    "static/js/2.b4407e07.chunk.js.LICENSE.txt": "/newmarketProject/static/js/2.b4407e07.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee6c2496.js",
+    "static/js/2.b4407e07.chunk.js",
+    "static/css/main.e8ff79f5.chunk.css",
+    "static/js/main.ea1ee7e0.chunk.js"
+  ]
+}
