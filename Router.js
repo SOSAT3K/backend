@@ -28,49 +28,52 @@ class Router {
 
             //check if user exists in the database
             let cols = [username];
-            db.query('SELECT * FROM user WHERE username = ? LIMIT 1', cols, (err, data, fields) => {
+            db.query('SELECT * FROM user_info WHERE username = ? LIMIT 1', cols, (err, data, fields) => {
+                
                 if (err) {
                     res.json({
                         success: false,
                         msg: 'Unable to find user in the database LIMIT 1'
                     })
                     return;
-
-                    //If user is found
-                    if (data && data.length === 1) {
-                            //Use bcrypt to compare password to database
-                            bcrypt.compare(password, data[0].password, (bcryptErr, verified) => {
-
-                                if (verified) {
-
-                                    req.session.userID = data[0].id;
-
-                                    //Return user name to user to avoid extra calls to API
-                                    res.json({
-                                        success: true,
-                                        username: data[0].username
-                                    })
-
-                                    return;
-                                }
-
-                                else {
-                                    res.join({
-                                        success: false,
-                                        msg: 'Invalid Password'     
-                                    })                               
-                                }
-                                
-                            });
-                    } else {
-                        res.json({
-                          success: false,
-                          msg: 'User not found, try again'  
-                        })
-                    }
                 }
+                //If user is found
+                if (data && data.length === 1) {
+                    //Use bcrypt to compare password to database
+                    bcrypt.compare(password, data[0].password, (bcryptErr, verified) => {
+
+                        if (verified) {
+
+                            req.session.userID = data[0].id;
+
+                            //Return user name to user to avoid extra calls to API
+                            res.json({
+                                success: true,
+                                username: data[0].username
+                            })
+
+                            return;
+                        }
+
+                        else {
+                            res.join({
+                                success: false,
+                                msg: 'Invalid Password'     
+                            })                               
+                        }
+                                
+                    });
+
+                } else {
+                    res.json({
+                        success: false,
+                        msg: 'User not found, try again'  
+                    })
+                }
+                
+
             });
-+
+
             console.log(username)   //remove once it's working
         });
 
@@ -105,7 +108,7 @@ class Router {
             if (req.session.userID) {
                 //ID is user set when session created
                 let cols = [req.session.userID];
-                db.query('SELECT * FROM user WHERE id = ? LIMIT 1', cols, (err, data, fields) =>{
+                db.query('SELECT * FROM user_info WHERE id = ? LIMIT 1', cols, (err, data, fields) =>{
 
                     if (data && data.length ===1) {
                         res.json({

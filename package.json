@@ -4,7 +4,7 @@
   "description": "",
   "main": "Main.js",
   "scripts": {
-    "start": "PORT=3001 node Main",
+    "start": "node Main",
     "build": "react-scripts build"
   },
   "author": "",
