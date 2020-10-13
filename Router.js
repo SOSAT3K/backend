@@ -13,7 +13,7 @@ class Router {
 
         app.post('/login', (req, res) => {
 
-            let username = req.body.username,
+            let username = req.body.username;
             let password = req.body.password;
 
             username = username.toLowerCase();    //Change username to all lowercase
