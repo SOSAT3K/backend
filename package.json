@@ -5,11 +5,7 @@
   "main": "Main.js",
   "scripts": {
     "start": "node Main",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
