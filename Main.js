@@ -50,7 +50,7 @@ new Router(app, db);    //To access both app and db automatically
 
 //Serve build from the frontend by using express 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));  //Server index.html from build folder (CHECK FOR SERVER)
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));  //Serve index.html from build folder (CHECK FOR SERVER)
 });
 
 app.listen(3000);
