@@ -49,21 +49,20 @@ class Router {
                             //Return user name to user to avoid extra calls to API
                             res.json({
                                 success: true,
-                                username: data[0].username
+                                username: data[0].username,
+                                msg: 'verified'
                             })
-
                             return;
                         }
 
                         else {
-                            res.join({
+                            res.json({
                                 success: false,
                                 msg: 'Invalid Password'     
                             })                               
                         }
                                 
                     });
-
                 } else {
                     res.json({
                         success: false,
@@ -73,15 +72,12 @@ class Router {
                 
 
             });
-
-            console.log(username)   //remove once it's working
         });
-
     }
 
     logout(app, db) {
 
-        app.post('/logout', (req, res) =>{
+        app.post('/logout', (req, res) => {
             //If user exists, log out 
             if (req.session.userID) {
                 req.session.destroy();
@@ -103,14 +99,14 @@ class Router {
     //API endpoint used to check if user is logged in
     isLoggedIn(app, db) {
 
-        app.post('/isLoggedIn', (req, res) =>{
+        app.post('/isLoggedIn', (req, res) => {
 
             if (req.session.userID) {
                 //ID is user set when session created
                 let cols = [req.session.userID];
-                db.query('SELECT * FROM user_info WHERE id = ? LIMIT 1', cols, (err, data, fields) =>{
+                db.query('SELECT * FROM user_info WHERE id = ? LIMIT 1', cols, (err, data, fields) => {
 
-                    if (data && data.length ===1) {
+                    if (data && data.length === 1) {
                         res.json({
                             success: true,
                             username: data[0].username
