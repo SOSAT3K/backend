@@ -59,7 +59,7 @@ class Router {
                             res.json({
                                 success: false,
                                 msg: 'Invalid Password'     
-                            })                               
+                            })                           
                         }
                                 
                     });
@@ -68,6 +68,7 @@ class Router {
                         success: false,
                         msg: 'User not found, try again'  
                     })
+                    return false;
                 }
                 
 
@@ -113,7 +114,6 @@ class Router {
                         })
 
                         return true;
-                    
                     //IF there is no data (User ID exists, but not in database)
                     } else {
                         res.json({
