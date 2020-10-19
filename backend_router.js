@@ -1,7 +1,9 @@
 //API endpoint
 const bcrypt = require('bcrypt');
+const session       = require('express-session');
+const MySQLStore    = require('express-mysql-session')(session);
 
-class Router {
+class backendRouter {
     //Access app in db, to access in each route (
     constructor(app, db) {
         this.login(app, db);
@@ -16,7 +18,7 @@ class Router {
             let username = req.body.username;
             let password = req.body.password;
 
-            username = username.toLowerCase();    //Change username to all lowercase
+            //username = username.toLowerCase();    //Change username to all lowercase
 
             if (username.length > 12 || password.length > 12) {
                 res.json({
@@ -33,10 +35,10 @@ class Router {
                 if (err) {
                     res.json({
                         success: false,
-                        msg: 'Unable to find user in the database LIMIT 1'
+                        msg: 'Unable to - LIMIT 1. ERROR'
                     })
                     return;
-                }
+                }  
                 //If user is found
                 if (data && data.length === 1) {
                     //Use bcrypt to compare password to database
@@ -68,7 +70,6 @@ class Router {
                         success: false,
                         msg: 'User not found, try again'  
                     })
-                    return false;
                 }
                 
 
@@ -136,4 +137,4 @@ class Router {
 
 }   
 
-module.exports = Router;
+module.exports = backendRouter;

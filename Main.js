@@ -4,7 +4,7 @@ const path          = require('path');
 const mysql         = require('mysql');
 const session       = require('express-session');
 const MySQLStore    = require('express-mysql-session')(session);
-const Router        = require('./Router');
+const backendRouter        = require('./backend_router');
 
 //console.log('testing server') - To test response
 
@@ -46,7 +46,7 @@ app.use(session({
     }
 }));
 
-new Router(app, db);    //To access both app and db automatically
+new backendRouter(app, db);    //To access both app and db automatically
 
 //Serve build from the frontend by using express 
 app.get('/', function(req, res) {
